@@ -14,9 +14,8 @@ export default function UserInputs() {
     const value = parseFloat(event.target.value);
     const name = event.target.name;
 
-    setUserInput({
-      ...userInput,
-      [name]: value,
+    setUserInput((prevUserInput) => {
+      return { ...prevUserInput, [name]: value };
     });
     console.log(userInput);
   }
