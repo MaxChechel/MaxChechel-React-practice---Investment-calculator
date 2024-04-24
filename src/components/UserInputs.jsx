@@ -1,47 +1,32 @@
-import { useState } from "react";
-
 import UserInput from "./UserInput";
 
-export default function UserInputs() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  function handleUserInput(event) {
-    const value = parseFloat(event.target.value);
-    const name = event.target.name;
-
-    setUserInput((prevUserInput) => {
-      return { ...prevUserInput, [name]: value };
-    });
-    console.log(userInput);
-  }
-
+export default function UserInputs(props) {
   return (
     <section id="user-input">
       <div className="input-group">
         <UserInput
+          value={props.userInput.initialInvestment}
           name="initialInvestment"
           labelText="Initial investment"
-          onInputChange={handleUserInput}
+          onInputChange={props.onInputChange}
         />
         <UserInput
+          value={props.userInput.annualInvestment}
           name="annualInvestment"
           labelText="Annual investment"
-          onInputChange={handleUserInput}
+          onInputChange={props.onInputChange}
         />
         <UserInput
+          value={props.userInput.expectedReturn}
           name="expectedReturn"
           labelText="Expected return"
-          onInputChange={handleUserInput}
+          onInputChange={props.onInputChange}
         />
         <UserInput
+          value={props.userInput.duration}
           name="duration"
           labelText="Duration"
-          onInputChange={handleUserInput}
+          onInputChange={props.onInputChange}
         />
       </div>
     </section>

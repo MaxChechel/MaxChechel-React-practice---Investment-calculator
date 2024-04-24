@@ -5,7 +5,13 @@ export default function UserInput(props) {
   return (
     <div>
       <label>{props.labelText}</label>
-      <input name={props.name} type="number" onChange={handleChange} />
+      <input
+        name={props.name}
+        type="number"
+        onChange={handleChange}
+        value={props.value}
+        min="1"
+      />
     </div>
   );
 }
